@@ -24,7 +24,7 @@ public class Conversion {
         this.tasaDeCambio = tasaDeCambio;
     }
 
-    public double obtenerEquivalencia() {
+    public void obtenerEquivalencia() {
 
         String url = "https://v6.exchangerate-api.com/v6/fb324edb8bfe36977a1cbd5a/latest/" + this.moneda;
 
@@ -74,11 +74,9 @@ public class Conversion {
             System.out.println("Ocurrió un error inesperado: " + e.getMessage());
             throw new RuntimeException(e);
         }
-
-        return this.equivalencia;
     }
 
-    public double obtenerCantidad() {
+    public void obtenerCantidad() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
@@ -98,12 +96,10 @@ public class Conversion {
                 scanner.next();
             }
         }
-
-        return this.cantidad;
     }
 
 
-    public double obtenerConversion() {
+    public void obtenerConversion() {
         if (this.cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor que cero.");
         }
@@ -112,7 +108,6 @@ public class Conversion {
         }
 
         this.resultado = Math.round(this.cantidad * this.equivalencia * 100.0) / 100.0;
-        return this.resultado;
     }
 
 

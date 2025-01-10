@@ -1,6 +1,4 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.List;
 
 public class Main {
 
@@ -21,7 +19,6 @@ public class Main {
             break;
             } else {
                 opciones.setSeleccion(0);
-                continue;
             }
         }
 

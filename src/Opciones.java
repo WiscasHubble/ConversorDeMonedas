@@ -19,10 +19,10 @@ public class Opciones {
             new String[]{"MXN", "USD"}
     );
 
-    public static void mostrarMenu() {
+    public void mostrarMenu() {
         System.out.println("""
         ***********************
-        Conversor de monedas: 
+        Conversor de monedas:
             1) Dollar >>> Peso Argentino
             2) Peso Argentino >>> Dollar
             3) Dollar >>> Real Brasileiro
@@ -35,7 +35,7 @@ public class Opciones {
     }
 
     // Obtiene una opción válida del usuario
-    public int obtenerSeleccionValida(Scanner scanner) {
+    public void obtenerSeleccionValida(Scanner scanner) {
         while (this.seleccion < 1 || this.seleccion > 6) {
             try {
                 this.seleccion = scanner.nextInt();
@@ -47,7 +47,7 @@ public class Opciones {
                 scanner.next();
             }
         }
-        return this.seleccion;
+
     }
 
     public void comenzarConversion(){
