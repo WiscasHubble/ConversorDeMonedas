@@ -1,27 +1,30 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.List;
 
 public class Main {
+
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        var opciones = new Opciones();
 
-        System.out.println("***********************");
-        System.out.println("Conversor de monedas: ");
-        System.out.println("""
-                1) Dollar >>> Peso Argentino
-                1) Peso Argentino >>> Dollar
-                1) Dollar >>> Real Brasileiro
-                1) Real Brasileiro >>> Dollar
-                1) Dollar >>> Chilean Peso
-                1) Chilean Peso >>> Dollar
-                1) Dollar >>> Colombian Peso
-                1) Colombian Peso >>> Dollar
-                1) Dollar >>> Mexican Peso
-                1) Mexican Peso >>> Dollar
-                """);
-        System.out.println("Elige una opción valida: ");
-        System.out.println("***********************");
+        while (true) {
+            opciones.mostrarMenu();
+            opciones.obtenerSeleccionValida(scanner);
+            opciones.comenzarConversion();
 
-        scanner.next();
-        scanner.close();
+            System.out.println("Seguir utilizando el programa?: Si[1], No[0]");
+            int utilizar = scanner.nextInt();
+
+            if (utilizar != 1){
+            break;
+            } else {
+                opciones.setSeleccion(0);
+                continue;
+            }
+        }
+
     }
+
 }
